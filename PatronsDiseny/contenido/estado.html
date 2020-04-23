@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/screen.css" type="text/css" media="all">
+	<title>Patrones de diseño: ESTADO</title>
+</head>
+
+<body>
+<a name = "inicio"></a>
+<h1>Patrón de diseño de comportamiento</h1>
+	<div style= "width: 800px;">
+<h2><ins>Estado</ins></h2>
+<p>El patrón Estado nos permite definir un comportamiento diferente dependiendo del estado interno en que se
+encuentre un objeto. Es decir, mediante la invocación del mismo método, el objeto se comporta de modo diferente
+dependiendo del estado.</p>
+<p>Para crear el patrón Estado, nos crearemos un contexto, que nos servirá de interfaz con el cliente, una interfaz estado para encapsular las responsabilidades del contexto en el estado en que se encuentre, y una serie de subclases estados concretos para definir los diferentes comportamientos de nuestro objeto.</p>
+<h3>Aplicaciones:</h3>
+<p>El patrón Estado se utiliza cuando:</p>
+<ul>
+	<li><strong>El comportamiento de un objeto depende de su estado</strong> y este puede cambiar en tiempo de ejecución.</li>
+	<li>Las operaciones tienen sentencias condicionales anidadas que tratan con los estados. Siendo el estado normalmente una constante. <strong>La idea es mover cada rama de la lógica condicional a una clase</strong> aparte.</li>
+</ul>
+
+<h3>Ejemplo:</h3>
+<p>Supónganse que una conexión de red es presentado en una implementación de TCP como TCPConnection y la conexión puede estar en uno de estos estados abierta, escuchando o cerrada. Cuando un objeto TCPConnection reciba peticiones de otros objetos debe responder de modo distinto dependiendo de cuál sea su estado. Además es vital eliminar toda lógica condicional.</p>
+
+<h3>Estructura:</h3>
+<img src="../img/estructurapatronstate.jpg" width="600" height="400" title="Estructura del patrón de diseño Estado."></img><br/>
+<ul>
+	<li><strong>Context</strong> (TCPConnection): Define la interfaz que interesa a los clientes. También mantiene una referencia a una subclase de estado concreto que representa el estado actual.</li>
+	<li><strong>State</strong> (TCPState): define la interfaz para encapsular el comportamiento asociado con el estado del contexto.</li>
+	<li><strong>Subclases ConcreteteState</strong> (TCPStablished, TCPListen, TCPClosed): cada subclase implementa las operaciones anteriores para el estado concreto.</li>
+</ul>
+
+<br/><a href="https://rootear.com/desarrollo/patron-state">Referencia bibliográfica del contenido de la web</a><br/>
+<br/><a href= "#inicio">Volver al inicio</a><br/>
+</div)>
+
+<footer><p>Sergio Larrión - Entornos de Desarrollo 2020</p></footer>
+</body>
+</html>
